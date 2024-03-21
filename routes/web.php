@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\MessageCreated;
+use App\Models\ChatMessage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/chat', function () {
+    $chat = ChatMessage::create([
+        'user' => request('user'), 
+        'message' => request('message_text') 
+    ]);
+
+    event((new MessageCreated($chat))->dontBroadcastToCurrentUser());
+});
+
