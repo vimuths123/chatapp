@@ -38,7 +38,7 @@ window.Pusher = Pusher;
 
 window.Echo = new Echo({
   broadcaster: 'pusher',
-  key: '10a941c334695eacb4a9',
+  key: 'pubkey',
   cluster: 'mt1',
   forceTLS: true
 });
