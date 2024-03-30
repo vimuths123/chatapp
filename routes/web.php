@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::post('/chat', function () {
     $chat = ChatMessage::create([
         'user' => request('user'), 
-        'message' => request('message_text') 
+        'message_text' => request('message_text') 
     ]);
 
     event((new MessageCreated($chat))->dontBroadcastToCurrentUser());
