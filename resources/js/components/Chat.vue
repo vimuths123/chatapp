@@ -52,7 +52,7 @@
         window.Echo.channel('chats').listen('MessageCreated', (e) => {
             let message = {
                 user: e.chat.user,
-                message_text: e.chat.message
+                message_text: e.chat.message_text
             }
 
             messages.value.push(message);
